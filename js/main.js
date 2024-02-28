@@ -12,6 +12,11 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
 	resetButton = document.querySelector('#resetBut'),
+	topLeftPiece = document.querySelector('#topLeft'),
+	topRightPiece = document.querySelector('#topRight'),
+	bottomLeftPiece = document.querySelector('#bottomLeft'),
+	bottomRightPiece = document.querySelector('#bottomRight'),
+	
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
 	draggedPiece;
@@ -27,6 +32,11 @@ function changeBGImage() {
 	
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 	
+	topLeftPiece.src = `images/topLeft${this.id}.jpg`;
+	topRightPiece.src = `images/topRight${this.id}.jpg`;
+	bottomLeftPiece.src = `images/bottomLeft${this.id}.jpg`;
+	bottomRightPiece.src = `images/bottomRight${this.id}.jpg`;
+
 	// bug fix #2 should go here. it's at most 3 lines of JS code.
 	
 	resetPieces();
