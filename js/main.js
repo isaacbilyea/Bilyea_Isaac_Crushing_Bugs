@@ -32,15 +32,17 @@ function changeBGImage() {
 	
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
 	
+	//'Bug' Fix #3
+
 	topLeftPiece.src = `images/topLeft${this.id}.jpg`;
 	topRightPiece.src = `images/topRight${this.id}.jpg`;
 	bottomLeftPiece.src = `images/bottomLeft${this.id}.jpg`;
 	bottomRightPiece.src = `images/bottomRight${this.id}.jpg`;
-
-	// bug fix #2 should go here. it's at most 3 lines of JS code.
 	
 	resetPieces();
 }
+
+//Bug Fix #2
 
 function resetPieces() {
     puzzlePieces.forEach(piece => document.querySelector('.puzzle-pieces').appendChild(piece));
@@ -62,10 +64,12 @@ function handleDragOver(e) {
 function handleDrop(e) { 
 	e.preventDefault();
 	console.log('dropped something on me');
-	// bug fix #1 should go here, and it's at most 3 lines of JS code
+
+	//Bug Fix #1
 	if (!this.firstElementChild) {
         this.appendChild(draggedPiece);
     }
+	
 	// this line is going to move the dragged piece from the left side of the board
 	// into whatever drop zone we choose. appendChild means "add element to the container"
 
@@ -76,6 +80,8 @@ function handleDrop(e) {
 
 // 1 to 1 event handling
 //theButton.addEventListener("click", changeBGImage);
+
+//Bug Fix #2
 
 resetButton.addEventListener('click', resetPieces);
 
