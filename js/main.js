@@ -11,6 +11,7 @@ let theButtons = document.querySelectorAll("#buttonHolder img"),
 	puzzleBoard = document.querySelector(".puzzle-board"),
 	puzzlePieces = document.querySelectorAll(".puzzle-pieces img"),
 	dropZones = document.querySelectorAll('.drop-zone'),
+	resetButton = document.querySelector('#resetBut'),
 	// store the dragged piece in a global variable
 	// because we need it in the handleDrop function
 	draggedPiece;
@@ -23,9 +24,16 @@ function changeBGImage() {
 	// inside the braces - run that little bit of code. In this case it's just pulling the ID of the
 	// button we clicked on and putting it at the end of the image name (0, 1, 2, 3)
 	// and updating the background-image style of the puzzle board element.
-
-	// bug fix #2 should go here. it's at most 3 lines of JS code.
+	
 	puzzleBoard.style.backgroundImage = `url(images/backGround${this.id}.jpg)`;
+	
+	// bug fix #2 should go here. it's at most 3 lines of JS code.
+	
+	resetPieces();
+}
+
+function resetPieces() {
+    puzzlePieces.forEach(piece => document.querySelector('.puzzle-pieces').appendChild(piece));
 }
 
 function handleStartDrag() { 
@@ -58,6 +66,8 @@ function handleDrop(e) {
 
 // 1 to 1 event handling
 //theButton.addEventListener("click", changeBGImage);
+
+resetButton.addEventListener('click', resetPieces);
 
 // 1 to many event handling
 // add event handling to each button in the collection of buttons, one at a time
